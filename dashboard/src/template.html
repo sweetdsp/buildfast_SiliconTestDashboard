@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BT Silicon Test Dashboard</title>
+<style>
+/*__CSS__*/
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="row1">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7l10 10-5 5V2l5 5L7 17"/></svg></div>
+        <div><h1>Bluetooth Silicon Test Dashboard</h1><div class="sub" id="meta"></div></div>
+      </div>
+      <span class="spacer"></span>
+      <span class="tag" id="insight-chip">Insights: rule-based</span>
+      <button class="btn primary" id="llm-open" type="button">AI insights (OpenAI)</button>
+      <button class="btn" id="theme-btn" type="button">Light blue</button>
+    </div>
+    <nav class="nav" aria-label="Sections">
+      <a href="#summary">Summary</a><a href="#risk">Risk &amp; forecast</a><a href="#anomalies">Anomalies</a><a href="#clusters">Bug clusters</a><a href="#actions">Next actions</a><a href="#execution">Execution</a><a href="#stability">MTBF</a><a href="#kpi">KPI</a><a href="#jira">Jira</a><a href="#trend">Trend</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="app"><noscript>This dashboard needs JavaScript.</noscript></main>
+<div id="tip" role="tooltip"></div>
+
+<dialog id="llm-dlg" aria-labelledby="llm-title">
+  <h2 id="llm-title" style="font-size:18px">LLM-powered insights</h2>
+  <p class="muted" style="margin:6px 0 0">Uses your OpenAI API key to write the TL;DR, risk and anomaly commentary, re-classify Jiras semantically, and prioritise next actions. Every LLM answer is validated against the computed facts; invalid output falls back to the rule-based engine.</p>
+  <label for="llm-key">OpenAI API key</label>
+  <input id="llm-key" type="password" autocomplete="off" spellcheck="false" placeholder="sk-...">
+  <label for="llm-model">Model</label>
+  <input id="llm-model" type="text" autocomplete="off" value="gpt-4o-mini">
+  <label style="display:flex;gap:8px;align-items:center;margin-top:12px"><input id="llm-remember" type="checkbox"> Remember the key in this browser (otherwise kept for this tab only)</label>
+  <p class="note">The key is typed here at runtime and sent only to api.openai.com from your browser. It is not stored in this file or in the repository. Use a restricted, low-limit key, and do not publish this page with a key saved in your browser.</p>
+  <p id="llm-status" class="note" hidden></p>
+  <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap">
+    <button class="btn primary" id="llm-run" type="button">Run LLM analysis</button>
+    <button class="btn" id="llm-rules" type="button">Use rule-based</button>
+    <button class="btn" id="llm-clear" type="button">Clear saved key</button>
+    <span class="spacer"></span>
+    <button class="btn" id="llm-close" type="button">Close</button>
+  </div>
+</dialog>
+
+<script id="run-data" type="application/json">/*__DATA__*/</script>
+<script>/*__ENGINE__*/</script>
+<script>/*__CHARTS__*/</script>
+<script>/*__LLM__*/</script>
+<script>/*__RENDER__*/</script>
+</body>
+</html>
